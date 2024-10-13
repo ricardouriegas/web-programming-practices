@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 50px;
+}
+
+header {
+    background-color: #00000057;
+    /* blur the background color */
+    backdrop-filter: blur(20px);
+    color: white;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 80px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+h1, h2 {
+    color: #333;
+    /* center */
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+}
+
+.info {
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price {
+    /* center */
+    text-align: center;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.about {
+    /* center thecontent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.product {
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.product img {
+    width: 20em;
+    height: auto;
+    border-radius: 20px;
+}
+
+.products-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0;
+}
+
+/* product details */
+.prduct-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.product-details img {
+    /* center */
+    margin: 0 auto;
+    display: block;
+    width: 20em;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* Welcome page */
+.welcome-products {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.welcome-product {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.welcome-product img {
+    width: 30em;
+    height: auto;
+    border-radius: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input, button {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #000000b2;
+    /* blur the background color */
+    backdrop-filter: blur(20px);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Rounded container with blur */
+.blur-container {
+    background: rgba(187, 187, 187, 0.295);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    margin-left: 8em;
+    margin-right: 8em;
+}
+
+/* Background animation */
+.blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, #9964a0, #7a43b1, #213597, #44b4b8, #8f3e3e);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    z-index: -1; /* Place behind content */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

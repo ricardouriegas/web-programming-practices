@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #bb3e3e 0%, #9a00c0 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.notebook {
+    width: 600px;
+    height: 800px;
+    background: rgba(0, 0, 0, 0.295);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.notebook h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.notebook p {
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+/* beatiful a */
+.notebook a {
+    color: #5089fa;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.notebook a:hover {
+    color: #d689fa;
+}
+
+.notebook .note {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notebook .note h2 {
+    margin-top: 0;
+    color: #fffdfd;
+}
