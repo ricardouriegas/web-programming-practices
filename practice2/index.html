@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 2</title>
+</head>
+<body>
+    <div>
+        <h1>Pracice 2: Javascript</h1>
+        <input type="text" name="name" id="name" placeholder="Username here">
+        <button id="button" type="button">Action Here</button>
+    </div>
+    
+    <script>
+        const btnAction = document.querySelector("#button");
+        const txtName = document.querySelector("#name")
+
+        function btnActionClick (e) {
+            const name = txtName.value.trim();
+
+            if (!name) {
+                txtName.focus();
+                return;
+            }
+
+            // grettings
+            alert("Hi my little fella " + name);
+
+            txtName.value ="";
+            txtName.focus();
+        }
+
+        btnAction.addEventListener('click', btnActionClick);
+        txtName.addEventListener('keypress', function(e){
+            console.log(txtName.value)
+        })
+    </script>
+</body>
+</html>
