@@ -12,29 +12,13 @@
         <button id="button" type="button">Action Here</button>
     </div>
     
-    <script>
-        const btnAction = document.querySelector("#button");
-        const txtName = document.querySelector("#name")
-
-        function btnActionClick (e) {
-            const name = txtName.value.trim();
-
-            if (!name) {
-                txtName.focus();
-                return;
-            }
-
-            // grettings
-            alert("Hi my little fella " + name);
-
-            txtName.value ="";
-            txtName.focus();
-        }
-
-        btnAction.addEventListener('click', btnActionClick);
-        txtName.addEventListener('keypress', function(e){
-            console.log(txtName.value)
-        })
-    </script>
+    <label id="s-user-agent"></label>
+    
+    <div>
+        <input type="text" name="item" id="txt-name-item" placeholder="Name of the item to add to the list">
+        <button id="add-button" type="button">Add to the list</button>
+        <ul id="ul-list"></ul>
+    </div>
+    <script src="js/index.js"></script>
 </body>
 </html>
