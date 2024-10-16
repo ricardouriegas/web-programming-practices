@@ -41,6 +41,27 @@ btnList.addEventListener('click', e => {
     li.textContent = itemName;
     list.appendChild(li);
 
+    li.addEventListener('click', li_click);
+    
     txtList.value = '';
     txtList.focus();
 });
+
+function li_click (e) {
+    alert('elemento de la lista presionado');
+}
+
+function Person(name, lastName, age) {
+    this.name = name;
+    this.lastName = lastName;
+    this.age = age;
+
+    this.sayHello = function() {
+        console.log(`Hello, my name is ${this.name} ${this.lastName} and im ${this.age} years old`);
+    }
+    
+}
+
+const person1 = new Person('Juan', 'Perez', 25);
+person1.sayHello();
+const person2 = new Person('Maria', 'Gomez', 30);
