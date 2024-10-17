@@ -48,7 +48,8 @@ btnList.addEventListener('click', e => {
 });
 
 function li_click (e) {
-    alert('elemento de la lista presionado');
+    const li = this;
+    alert('elemento de la lista presionado: ' + li.textContent);
 }
 
 function Person(name, lastName, age) {
@@ -57,11 +58,68 @@ function Person(name, lastName, age) {
     this.age = age;
 
     this.sayHello = function() {
-        console.log(`Hello, my name is ${this.name} ${this.lastName} and im ${this.age} years old`);
+        console.log(`whatsup, my name is ${this.name} ${this.lastName} and im ${this.age} years old`);
     }
     
 }
 
+//! creating a new object
 const person1 = new Person('Juan', 'Perez', 25);
-person1.sayHello();
+person1.sayHello(); // calling the function inside the object
+
+// adding properties to the object
+person1.anotherPerson = 'person something';
+person1.sayAge = function() {
+    console.log(`my age is ${this.age}`);
+}
+console.log(person1.anotherPerson);
+person1.sayAge();
+
+//! creating a new object
 const person2 = new Person('Maria', 'Gomez', 30);
+person2.sayHello();
+
+// adding a function to the prototype
+Person.prototype.sayCompleteName = function() {
+    console.log(`my complete name is ${this.name} ${this.lastName}`);
+}
+
+person1.sayCompleteName();
+person2.sayCompleteName();
+
+
+if (person2.sayAge) {
+    person2.sayAge();
+} else {
+    console.log('sayAge function not found');
+}
+
+const obj1 = {
+    name: 'Juan',
+    lastName: 'Perez',
+}
+
+const arr01= [];
+arr01.push(person1);
+arr01.push(person2);
+
+const arr2 = [1, 2,3 ,4, 5, 6,7 ,8];
+let arrT = arr2.filter(function(i, ix, arr) {return i % 2 == 0});
+console.log("Valores [ares");
+console.log(arrT);
+arrT = arr2.filter((i, ix, arr) => i % 2 == 0);
+console.log(arrT);
+
+// is the same 
+let arrT2 = [];
+for (let ix = 0; ix < arr2.length; ix++) {
+    if (arr2[ix] % 2 != 0){
+        arrT2.push(arr2[ix]);
+    }    
+}
+
+
+// map function
+console.log("Using map to multiply by 2");
+arrT = arr3.map((i, ix, arr) => i * 2);
+console.log(arrT);
