@@ -5,6 +5,19 @@ const sUserAgent = document.getElementById("s-user-agent");
 
 sUserAgent.textContent = navigator.userAgent;
 
+if (!localStorage.getItem('elementList')) {
+    localStorage.setItem('elementList', JSON.stringify([]));
+}
+
+const listing = JSON.parse(localStorage.getItem('elementList'));
+
+for (let item of listing) {
+    const li = document.createElement('li');
+    li.textContent = item;
+    li.addEventListener('click', li_click);
+    list.appendChild(li);
+}
+
 function btnActionClick (e) {
     const name = txtName.value.trim();
 
@@ -121,5 +134,5 @@ for (let ix = 0; ix < arr2.length; ix++) {
 
 // map function
 console.log("Using map to multiply by 2");
-arrT = arr3.map((i, ix, arr) => i * 2);
+arrT = arr2.map((i, ix, arr) => i * 2);
 console.log(arrT);
