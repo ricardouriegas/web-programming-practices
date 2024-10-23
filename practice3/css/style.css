@@ -9,17 +9,6 @@ body {
     padding-bottom: 50px;
 }
 
-header {
-    background-color: #00000057;
-    /* blur the background color */
-    backdrop-filter: blur(20px);
-    color: white;
-    text-align: center;
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 80px;
-}
-
 h1, h2 {
     color: #ffffff;
     /* shadown */
@@ -39,22 +28,12 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 20px;
+    transition: transform .5s ease;
 }
 
 button:hover {
-    background-color: #555;
-}
-
-footer {
-    background-color: #000000b2;
-    /* blur the background color */
-    backdrop-filter: blur(20px);
-    color: white;
-    text-align: center;
-    padding: 8px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    transform: scale(1.08);
 }
 
 /* Rounded container with blur */
@@ -115,13 +94,18 @@ footer {
     width: 100px;
     height: 100px;
     background-color: #fff;
-    border: 2px solid #333;
+    /* border: 2px solid #333; */
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     cursor: pointer;
+    transition: transform 0.2s ease; /* Transición suave al hacer hover */
+}
+
+.cell:hover {
+    transform: scale(1.05); 
 }
 
 /* /////////////////////////////////////////////////////////////// */
