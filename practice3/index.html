@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="blur-background"></div>
+    <div class="blur-container">
         <h1>Tic Tac Toe</h1>
         <div id="game-board" class="game-board">
             <div class="cell" data-index="0"></div>
@@ -25,8 +26,8 @@
 
         <button id="reset-btn" class="reset-btn">Reset Game</button>
 
-        <h2>Top 10 Best Times</h2>
-        <ul id="best-times" class="best-times"></ul>
+        <h2>Top 10</h2>
+        <ol id="best-times" class="rolldown-list"></ol>
     </div>
 
     <script src="js/index.js"></script>

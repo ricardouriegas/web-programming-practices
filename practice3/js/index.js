@@ -1,9 +1,9 @@
 // Variables for game state
 let board = ["", "", "", "", "", "", "", "", ""];
-let playerTurn = "X";
-let isGameActive = true;
-let startTime = null;
-let timerInterval;
+let playerTurn = "X"; // X goes first
+let isGameActive = true; // game is active
+let startTime = null; // start time
+let timerInterval; // timer interval
 
 // Winning combinations
 const winningCombinations = [
@@ -17,17 +17,17 @@ const winningCombinations = [
     [2, 4, 6]
 ];
 
-// Elements
+// elements
 const cells = document.querySelectorAll(".cell");
 const statusDisplay = document.getElementById("status");
 const resetBtn = document.getElementById("reset-btn");
 const bestTimesList = document.getElementById("best-times");
 
-// Initialize game
+// initialize game
 resetGame();
 displayBestTimes();
 
-// Cell click event listener
+// cell click event listener
 cells.forEach(cell => {
     cell.addEventListener("click", () => {
         const index = cell.getAttribute("data-index");
@@ -42,16 +42,17 @@ resetBtn.addEventListener("click", resetGame);
 
 // Handle player's move
 function handlePlayerMove(index) {
+    playerTurn = "X";
     board[index] = playerTurn;
     renderBoard();
     if (startTime === null) {
         startTime = new Date();
-        timerInterval = setInterval(updateTimer, 1000);
+        timerInterval = setInterval(updateTimer, 1);
     }
     if (checkWin()) {
         endGame("Player");
     } else if (board.includes("")) {
-        setTimeout(handleComputerMove, 500); // Computer moves after player
+        handleComputerMove();
     } else {
         endGame("Draw");
     }
@@ -64,6 +65,7 @@ function handleComputerMove() {
         .filter(index => index !== null);
     let randomIndex = availableIndexes[Math.floor(Math.random() * availableIndexes.length)];
     board[randomIndex] = "O";
+    playerTurn = "O";
     renderBoard();
     if (checkWin()) {
         endGame("Computer");
@@ -92,7 +94,7 @@ function endGame(winner) {
     clearInterval(timerInterval);
     if (winner === "Player") {
         statusDisplay.textContent = "You win!";
-        const timeElapsed = Math.floor((new Date() - startTime) / 1000);
+        const timeElapsed = ((new Date() - startTime) / 1000).toFixed(3);
         saveBestTime(timeElapsed);
     } else if (winner === "Computer") {
         statusDisplay.textContent = "Computer wins!";
@@ -104,17 +106,17 @@ function endGame(winner) {
 
 // Save the best time to localStorage
 function saveBestTime(time) {
-    let playerName = prompt("You won! Enter your name:");
+    let playerName = prompt("Winna, ur name here:");
     if (playerName) {
         let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
         bestTimes.push({ name: playerName, time });
         bestTimes.sort((a, b) => a.time - b.time);
-        bestTimes = bestTimes.slice(0, 10); // Only keep top 10
+        bestTimes = bestTimes.slice(0, 10); //top 10
         localStorage.setItem("bestTimes", JSON.stringify(bestTimes));
     }
 }
 
-// Display the best times
+// liar of the best times
 function displayBestTimes() {
     const bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
     bestTimesList.innerHTML = bestTimes
@@ -135,6 +137,7 @@ function resetGame() {
 
 // Update the timer
 function updateTimer() {
-    const timeElapsed = Math.floor((new Date() - startTime) / 1000);
+    // time
+    const timeElapsed = ((new Date() - startTime) / 1000).toFixed(3);
     statusDisplay.textContent = `Player's Turn - Time: ${timeElapsed}s`;
 }
