@@ -1,11 +1,43 @@
-// Variables for game state
+// audio tag
+const audio = document.getElementById("audio");
+
+// Definir la función para reproducir el audio
+function playAudio() {
+    audio.play().then(() => {
+        console.log("Audio is playing");
+    }).catch(error => {
+        console.error("Error playing audio:", error);
+    });
+
+    // Eliminar el event listener después del primer clic
+    document.removeEventListener("click", playAudio);
+}
+
+// Añadir el event listener para hacer clic en cualquier parte de la página
+document.addEventListener("click", playAudio);
+
+// Reproducción en cadena de las siguientes pistas
+audio.addEventListener("ended", playNext);
+
+function playNext() {
+    if (audio.src.includes("bb-lean-interlude.mp3")) {
+        audio.src = "audios/drake.mp3";
+        audio.play();
+    } else if (audio.src.includes("drake.mp3")) {
+        audio.src = "audios/trabis.mp3";
+        audio.play();
+        audio.removeEventListener("ended", playNext); // Opcional si no hay más audios
+    }
+}
+
+// vairables
 let board = ["", "", "", "", "", "", "", "", ""];
 let playerTurn = "X"; // X goes first
 let isGameActive = true; // game is active
 let startTime = null; // start time
 let timerInterval; // timer interval
 
-// Winning combinations
+// combinations for winning
 const winningCombinations = [
     [0, 1, 2],
     [3, 4, 5],
@@ -17,13 +49,11 @@ const winningCombinations = [
     [2, 4, 6]
 ];
 
-// elements
 const cells = document.querySelectorAll(".cell");
 const statusDisplay = document.getElementById("status");
 const resetBtn = document.getElementById("reset-btn");
 const bestTimesList = document.getElementById("best-times");
 
-// initialize game
 resetGame();
 displayBestTimes();
 
@@ -37,10 +67,10 @@ cells.forEach(cell => {
     });
 });
 
-// Reset button event listener
+// reset button event listener
 resetBtn.addEventListener("click", resetGame);
 
-// Handle player's move
+// handle player's move
 function handlePlayerMove(index) {
     playerTurn = "X";
     board[index] = playerTurn;
@@ -58,7 +88,7 @@ function handlePlayerMove(index) {
     }
 }
 
-// Handle computer's random move
+// handle computer's random move
 function handleComputerMove() {
     let availableIndexes = board
         .map((cell, index) => (cell === "" ? index : null))
@@ -74,21 +104,21 @@ function handleComputerMove() {
     }
 }
 
-// Render the board
+// render the board
 function renderBoard() {
     cells.forEach((cell, index) => {
         cell.textContent = board[index];
     });
 }
 
-// Check if there's a winner
+// check if there's a winner
 function checkWin() {
     return winningCombinations.some(combination =>
         combination.every(index => board[index] === playerTurn)
     );
 }
 
-// End the game
+// end the game
 function endGame(winner) {
     isGameActive = false;
     clearInterval(timerInterval);
@@ -104,7 +134,7 @@ function endGame(winner) {
     displayBestTimes();
 }
 
-// Save the best time to localStorage
+// save the best time to localStorage
 function saveBestTime(time) {
     let playerName = prompt("Winna, ur name here:");
     if (playerName) {
@@ -124,7 +154,7 @@ function displayBestTimes() {
         .join("");
 }
 
-// Reset the game
+// reset the game
 function resetGame() {
     board = ["", "", "", "", "", "", "", "", ""];
     playerTurn = "X";
@@ -135,7 +165,7 @@ function resetGame() {
     renderBoard();
 }
 
-// Update the timer
+// update the timer
 function updateTimer() {
     // time
     const timeElapsed = ((new Date() - startTime) / 1000).toFixed(3);
