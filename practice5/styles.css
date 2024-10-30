@@ -15,11 +15,11 @@ body {
     border-radius: 20px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.719);
     padding: 2em;
-    overflow-y: auto;
+
     /* center margin */
     margin: 0 auto;
     width: 90%;
-    max-width: 600px;
+    max-width: 100%;
     margin-top: 2em;
     margin-bottom: 2em;
 
@@ -52,12 +52,27 @@ h1 {
     margin: 20px;
 }
 
+/* Contenedor del tablero */
+.tablero-container {
+    width: 100%;
+    max-height: 70vh; /* Altura máxima para el tablero */
+    overflow-x: auto; /* Habilita el desplazamiento horizontal */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    display: flex;
+    justify-content: center; /* Centra el tablero horizontalmente */
+    padding: 1em; /* Añade algo de espacio alrededor del tablero */
+}
+
+/* Estilos del tablero */
 #tablero {
     display: grid;
-    gap: .8em;
-    margin-top: 1em;
+    gap: 0.8em;
     background-color: transparent;
+    margin-top: 1em;
+    justify-items: center; /* Centra las celdas dentro del tablero */
 }
+
+
 
 .celda {
     width: 2rem;

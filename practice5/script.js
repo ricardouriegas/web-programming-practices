@@ -121,16 +121,20 @@ function seleccionarCelda(event, isRightClick) {
         if (tablero[fila][columna] === 'M') {
             juegoTerminado = true;
             mostrarTodasLasMinas();
-            document.getElementById("estado").textContent = "¡Perdiste! Has seleccionado una mina.";
+            document.getElementById("estado").textContent = "Perdiste";
+            // correr sonido de que  perdiste
+            var audio = new Audio('audios/perdiste.mp3');
+            audio.play();
         } else if (verificarVictoria()) {
-            document.getElementById("estado").textContent = "¡Felicidades! Ganaste.";
+            // Mostrar todas las minas
+            juegoTerminado = true;
+            mostrarTodasLasMinas();
+            document.getElementById("estado").textContent = "Winna";
+            alert("Ganaste");
         }
     }
     renderTablero();
 }
-
-
-
 
 function reubicarMina(fila, columna) {
     tablero[fila][columna] = 0; // Eliminar la mina de la casilla original
