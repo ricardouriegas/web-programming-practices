@@ -1,5 +1,3 @@
-// script.js
-
 const DIFFICULTY_LEVELS = {
     "Facil": { filas: 5, columnas: 5, minas: 5 },
     "Medio": { filas: 8, columnas: 8, minas: 10 },
@@ -129,7 +127,7 @@ function seleccionarCelda(event, isRightClick) {
             // Mostrar todas las minas
             juegoTerminado = true;
             mostrarTodasLasMinas();
-            document.getElementById("estado").textContent = "Winna";
+            document.getElementById("estado").textContent = "Ganado";
             alert("Ganaste");
         }
     }
@@ -190,13 +188,12 @@ function verificarVictoria() {
     }).length === 0;
 }
 
-// animacion
+// animacion de bolitas rebotoando en el fondo
 const canvas = document.getElementById('backgroundCanvas');
 const ctx = canvas.getContext('2d');
 const particles = [];
 const numParticles = 100;
 
-// Ajustar el tamaño del lienzo
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 

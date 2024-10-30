@@ -44,7 +44,7 @@ body {
 
 
 h1 {
-    color: #d0c3ff; /* Un morado oscuro que complementa la paleta */
+    color: #d0c3ff; 
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra suave para el texto */
 }
 
@@ -52,24 +52,22 @@ h1 {
     margin: 20px;
 }
 
-/* Contenedor del tablero */
 .tablero-container {
     width: 100%;
-    max-height: 70vh; /* Altura máxima para el tablero */
-    overflow-x: auto; /* Habilita el desplazamiento horizontal */
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    max-height: 70vh; 
+    overflow-x: auto; 
+    overflow-y: auto; 
     display: flex;
-    justify-content: center; /* Centra el tablero horizontalmente */
-    padding: 1em; /* Añade algo de espacio alrededor del tablero */
+    justify-content: center; 
+    padding: 1em; 
 }
 
-/* Estilos del tablero */
 #tablero {
     display: grid;
     gap: 0.8em;
     background-color: transparent;
     margin-top: 1em;
-    justify-items: center; /* Centra las celdas dentro del tablero */
+    justify-items: center; 
 }
 
 
@@ -77,54 +75,54 @@ h1 {
 .celda {
     width: 2rem;
     height: 2rem;
-    background-color: #88683d; /* Color de tierra */
-    color: #5B4B93; /* Morado oscuro para el texto */
+    background-color: #88683d; 
+    color: #5B4B93; 
     font-weight: bold;
     text-align: center;
-    line-height: 2rem; /* Alineación vertical centrada */
+    line-height: 2rem; 
     cursor: pointer;
     border-radius: 5px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 
-                0 0 5px rgba(0, 39, 0, 0.5); /* Sombra verde para simular pasto */
-    transition: background-color 0.3s, transform 0.1s; /* Efecto de transformación */
-    border: 2px solid #0e5208; /* Borde marrón para dar más detalle */
+                0 0 5px rgba(0, 39, 0, 0.5); 
+    transition: background-color 0.3s, transform 0.1s; 
+    border: 2px solid #0e5208; 
 }
 
 
 .celda:hover {
-    background-color: #3f1e06; /* Tono más claro al pasar el mouse */
-    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+    background-color: #3f1e06; 
+    transform: scale(1.1); 
 }
 
 .celda.desvelada {
-    background-color: #211ebd56; /* Color claro para el "mar" */
+    background-color: #211ebd56; 
     color: #ffffff;
     box-shadow: none;
 }
 
 .bandera {
-    background-color: red; /* Color de fondo de la bandera */
-    color: white; /* Color del texto (si hay alguno) */
-    border: 2px solid yellow; /* Añade un borde amarillo para resaltar la bandera */
-    position: relative; /* Para que podamos posicionar el icono de la bandera si es necesario */
+    background-color: red; 
+    color: white; 
+    border: 2px solid yellow; 
+    position: relative; 
 }
 
 
 
 button {
-    background-color: #5B4B93; /* Morado oscuro para botones */
+    background-color: #5B4B93; 
     color: #ffffff;
     border: none;
     padding: 10px 20px;
     font-size: 1em;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s; /* Añadido efecto de transformación */
+    transition: background-color 0.3s, transform 0.1s; 
 }
 
 button:hover {
-    background-color: #6A5ACD; /* Un morado más claro al pasar el mouse */
-    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    background-color: #6A5ACD; 
+    transform: scale(1.05); 
 }
 
 /* canva */
@@ -142,7 +140,7 @@ canvas {
     text-align: center;
 }
 
-/* Estilo para los inputs personalizados en modo Custom */
+/* estilo par los inputs personalizados en custom */
 #customInputs {
     display: flex;
     margin-top: 1em;
@@ -153,15 +151,15 @@ canvas {
 
 #customInputs label {
     font-weight: bold;
-    color: #d0c3ff; /* Color similar al del título para cohesión */
+    color: #d0c3ff; 
     font-size: 0.9em;
     margin-bottom: 0.2em;
 }
 
 #customInputs input {
-    background-color: #3a3a3a; /* Fondo oscuro para los inputs */
-    color: #ffffff; /* Texto blanco para contraste */
-    border: 2px solid #5B4B93; /* Borde morado oscuro */
+    background-color: #3a3a3a; 
+    color: #ffffff; 
+    border: 2px solid #5B4B93; 
     border-radius: 5px;
     padding: 0.5em;
     font-size: 1em;
@@ -171,38 +169,37 @@ canvas {
 }
 
 #customInputs input:focus {
-    border-color: #6A5ACD; /* Morado claro al enfocar */
+    border-color: #6A5ACD; 
     box-shadow: 0 0 6px rgba(106, 90, 205, 0.5);
 }
 
 #difficulty {
-    background-color: #3a3a3a; /* Dark background for consistency */
-    color: #ffffff; /* White text for contrast */
-    border: 2px solid #5B4B93; /* Dark purple border */
+    background-color: #3a3a3a; 
+    color: #ffffff; 
+    border: 2px solid #5B4B93; 
     border-radius: 10px;
     padding: 0.5em;
     font-size: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    appearance: none; /* Hides default arrow for custom styling */
+    appearance: none; 
     outline: none;
     transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
     margin-bottom: 1em;
     margin-top: 1em;
 }
 
-/* Custom arrow for select dropdown */
+
 #difficulty::after {
-    content: "▼"; /* Downward arrow */
+    content: "▼"; 
     position: absolute;
     right: 1em;
-    color: #d0c3ff; /* Light purple for the arrow */
+    color: #d0c3ff; 
     pointer-events: none;
 }
 
-/* Focused and hover state */
 #difficulty:focus, #difficulty:hover {
-    border-color: #6A5ACD; /* Lighter purple on focus */
+    border-color: #6A5ACD; 
     transform: scale(1.25);
     box-shadow: 0 0 20px rgba(106, 90, 205, 0.5);
 }
