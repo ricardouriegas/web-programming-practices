@@ -126,3 +126,68 @@ canvas {
     font-size: 2rem;
     text-align: center;
 }
+
+/* Estilo para los inputs personalizados en modo Custom */
+#customInputs {
+    display: flex;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+#customInputs label {
+    font-weight: bold;
+    color: #d0c3ff; /* Color similar al del título para cohesión */
+    font-size: 0.9em;
+    margin-bottom: 0.2em;
+}
+
+#customInputs input {
+    background-color: #3a3a3a; /* Fondo oscuro para los inputs */
+    color: #ffffff; /* Texto blanco para contraste */
+    border: 2px solid #5B4B93; /* Borde morado oscuro */
+    border-radius: 5px;
+    padding: 0.5em;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#customInputs input:focus {
+    border-color: #6A5ACD; /* Morado claro al enfocar */
+    box-shadow: 0 0 6px rgba(106, 90, 205, 0.5);
+}
+
+#difficulty {
+    background-color: #3a3a3a; /* Dark background for consistency */
+    color: #ffffff; /* White text for contrast */
+    border: 2px solid #5B4B93; /* Dark purple border */
+    border-radius: 10px;
+    padding: 0.5em;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    appearance: none; /* Hides default arrow for custom styling */
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+/* Custom arrow for select dropdown */
+#difficulty::after {
+    content: "▼"; /* Downward arrow */
+    position: absolute;
+    right: 1em;
+    color: #d0c3ff; /* Light purple for the arrow */
+    pointer-events: none;
+}
+
+/* Focused and hover state */
+#difficulty:focus, #difficulty:hover {
+    border-color: #6A5ACD; /* Lighter purple on focus */
+    transform: scale(1.25);
+    box-shadow: 0 0 20px rgba(106, 90, 205, 0.5);
+}

@@ -15,7 +15,18 @@ function iniciarJuego() {
 
     const nivel = document.getElementById("difficulty").value;
 
-    ({ filas, columnas, minas } = DIFFICULTY_LEVELS[nivel]);
+    // custom
+    if (nivel === "Custom") {
+        filas = Number(document.getElementById("filas").value);
+        columnas = Number(document.getElementById("columnas").value);
+        minas = Number(document.getElementById("minas").value);
+
+        if (filas < 5 || columnas < 5 || minas < 1 || minas >= filas * columnas) {
+            alert("Por favor, ingrese valores válidos para las filas, columnas y minas.");
+            return;
+        }
+    } else 
+        ({ filas, columnas, minas } = DIFFICULTY_LEVELS[nivel]);
 
     tablero = Array.from({ length: filas }, () => Array(columnas).fill(0));
     visible = Array.from({ length: filas }, () => Array(columnas).fill(false));

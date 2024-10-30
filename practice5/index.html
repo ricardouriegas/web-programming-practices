@@ -5,21 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscaminas</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleCustomInputs() {
+            const difficultySelect = document.getElementById('difficulty');
+            const customInputs = document.getElementById('customInputs');
+
+            if (difficultySelect.value === 'Custom') {
+                customInputs.style.display = 'block';
+            } else {
+                customInputs.style.display = 'none';
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Buscaminas</h1>
     <canvas id="backgroundCanvas"></canvas>
     <div id="controls"class="blur-container">
         <label for="difficulty">Seleccionar dificultad:</label>
-        <select id="difficulty">
+        <select id="difficulty" onchange="toggleCustomInputs()">
             <option value="Facil">Fácil</option>
             <option value="Medio">Medio</option>
             <option value="Dificil">Difícil</option>
             <option value="MuyDificil">Muy Difícil</option>
             <option value="Hardcore">Hardcore</option>
             <option value="Leyenda">Leyenda</option>
-            <option value="Custom">Custom</option>
+            <option value="Custom">Personalizado</option>
         </select>
+
+        <div id="customInputs" style="display: none;">
+            <label for="rows">Filas:</label><br>
+            <input type="number" id="filas" min="5">
+            <br>
+            <label for="columns">Columnas:</label><br>
+            <input type="number" id="columnas" min="5">
+            <br>
+            <label for="mines">Minas:</label><br>
+            <input type="number" id="minas" min="1">
+        </div>
+
         <button onclick="iniciarJuego()">Iniciar Juego</button>
         <div id="tablero"></div>
         <div id="estado"></div>
